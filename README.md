@@ -11,7 +11,7 @@ To install the relevant files type ```appbox-octopress install``` in the root di
 
 * Clone the Git Repository
 * Copy ```appbox.rb``` from ```templates/plugins``` to ```yourinstallationdir/plugins```
-* Copy ```appbox.css``` from ```templates/plugins``` to ```yourinstallationdir/source/stylesheets```
+* Copy ```appbox.css``` from ```templates/css``` to ```yourinstallationdir/source/stylesheets```
 * Add the following line of HTML code to ```yourinstallationdir/source/_includes/custom/head.html```
 
 ```html
