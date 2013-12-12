@@ -61,11 +61,11 @@ module Jekyll
     def get_small_style
 
       small = ''
-      small +=  "<p><div class=\"appbox\"><a class=\"appbutton\" href=\"#{@result["url"]}\">"
+      small +=  "<p><div class=\"appbox\">"
       if @store == 'appstore'
-        small += "Go to <br />AppStore"
+        small += "<a class=\"appbutton_appstore\" href=\"#{@result["url"]}\" target=\"itunes_store\">"
       elsif @store == 'googleplay'
-        small += "Go to <br /> PlayStore"
+        small += "<a class=\"appbutton_googleplay\" href=\"#{@result["url"]}\">"
       end
       small += "</a>"
       small += "<div><a href=\"#{@result["url"]}\">"
