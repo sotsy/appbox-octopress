@@ -1,6 +1,8 @@
 # AppBox Octopress
 An AppBox to display Apple Appstore or Google Play Apps to your posts in Octopress or Jekyll
 
+If you prefer the original store buttons from Apple or GooglePlay, have a look at [this forked repo](https://github.com/nrellihan/appbox-octopress)
+
 ## Installation
 
 Add ```appbox-octopress``` and ```nokogiri``` gem to your Gemfile and run ```bundle install```. ```open-uri``` is part of the Ruby Standard Libs.
