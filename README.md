@@ -3,7 +3,7 @@ An AppBox to display Apple Appstore or Google Play Apps to your posts in Octopre
 
 ## Installation
 
-Add ```appbox-octopress``` gem to your Gemfile and run ```bundle install```.
+Add ```appbox-octopress``` and ```nokogiri``` gem to your Gemfile and run ```bundle install```. ```open-uri``` is part of the Ruby Standard Libs.
 
 To install the relevant files type ```appbox-octopress install``` in the root directory of your Octopress or Jekyll installation.
 
