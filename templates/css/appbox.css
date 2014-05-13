@@ -116,25 +116,23 @@
   display: inline; 
 }
 
-.appbutton {
-  height: 44px;
+.appbutton_appstore {
   float: right;
   margin: 10px; 
-  display: inline-block;
-  background-color: #E5E5E5;
-  border: 1px solid #E5E5E5;
-  padding: 10px 15px;
-  font-weight: bold;
-  font-size: .95em;
-  line-height: 1.6em;
-  text-align: center;
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
+  display:inline-block;
+  overflow:hidden;
+  background:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.png) no-repeat;
+  width:135px;
+  height:40px;
+  @media only screen {
+    background-image:url(https://linkmaker.itunes.apple.com/htmlResources/assets/en_us//images/web/linkmaker/badge_appstore-lrg.svg);
+  }
 }
 
-.appbutton:hover {
-  background-color: #C1C1C1;
-  color: #FFF;
-  text-decoration: none !important;
+.appbutton_googleplay {
+  background:url(https://developer.android.com/images/brand/en_generic_rgb_wo_60.png);
+  float: right;
+  margin: 10px; 
+  display:inline-block;
+  overflow:hidden;
 }
