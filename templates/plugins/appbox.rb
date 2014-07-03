@@ -11,7 +11,7 @@ module Jekyll
     @id = ''
     @store = ''
     @style = ''
-    
+
     def initialize(tag_name, markup, tokens)
       super
       @result = Hash.new
@@ -32,10 +32,10 @@ module Jekyll
 
     def render(context)
       # Get ID of post to generate identifying MD5 hash
-      @post_id = context["page"]["id"]
+      @page_path = context["page"]["path"]
       # make sure to pass only posts with id
-      unless @post_id.nil?
-        if File.exist? get_cached_file(@store, @id, @post_id)
+      unless @page_path.nil?
+        if File.exist? get_cached_file(@store, @id, @page_path)
           get_cached_data(@id)
         else
           if @store == 'appstore'
@@ -130,7 +130,7 @@ module Jekyll
         @result[result] = app_data["results"][0][request]
       end
 
-      save_cached_data(get_cached_file(@store, app_id, @post_id))
+      save_cached_data(get_cached_file(@store, app_id, @page_path))
     end
 
     def googleplay_fetch_data(app_id)
@@ -156,18 +156,18 @@ module Jekyll
                         doc.css("meta[itemprop=price]").first['content'],
                         doc.css("div.info-container div a.document-subtitle").first.content,
                         base_url + doc.css("div.info-container div a.document-subtitle").first['href'],
-                        doc.css("div.tiny-star div.current-rating").first['style'][/\d+\.\d+/].to_f.round(1) / 100 * 5, 
+                        doc.css("div.tiny-star div.current-rating").first['style'][/\d+\.\d+/].to_f.round(1) / 100 * 5,
                         doc.css("div.thumbnails img.screenshot").collect {|thumb| thumb['src']}
                          ]
       @resultarray.zip(requestarray).each do |result, request|
         @result[result] = request
       end
 
-      save_cached_data(get_cached_file(@store, app_id, @post_id))
+      save_cached_data(get_cached_file(@store, app_id, @page_path))
     end
 
     def get_cached_data(app_id)
-      cached_file = get_cached_file(@store, app_id, @post_id)
+      cached_file = get_cached_file(@store, app_id, @page_path)
       @result = JSON.parse File.read cached_file if File.exist? cached_file
       return nil if @result.nil?
     end
@@ -178,8 +178,8 @@ module Jekyll
       end
     end
 
-    def get_cached_file(store, app_id, post_id)
-      File.join @cachefolder, "#{store}_#{app_id}-#{Digest::MD5.hexdigest(post_id)}.cache"
+    def get_cached_file(store, app_id, page_path)
+      File.join @cachefolder, "#{store}_#{app_id}-#{Digest::MD5.hexdigest(page_path)}.cache"
     end
 
   end
